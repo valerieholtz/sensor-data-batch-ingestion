@@ -10,7 +10,7 @@ The project demonstrates:
 
 ## Dataset
 
-The dataset iot_telemetry_data.csv used in this project is not included in the repository due to licensing. Please download it manually from Kaggle and place it in the project root directory.
+The dataset *iot_telemetry_data.csv* used in this project is not included in the repository due to licensing. Please download it manually from Kaggle and place it in the project root directory.
 
 Dataset source:  
 [Environmental Sensor Telemetry Dataset on Kaggle](https://www.kaggle.com/datasets/garystafford/environmental-sensor-data-132k/data)
