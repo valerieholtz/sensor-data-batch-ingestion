@@ -58,7 +58,7 @@ for i in range(0, len(valid_records), BATCH_SIZE):
         collection.insert_many(batch)
         print(f"Inserted batch {i // BATCH_SIZE + 1}")
     except BulkWriteError as bwe:
-        print(f"⚠️ Bulk write error: {bwe.details}")
+        print(f"Bulk write error: {bwe.details}")
 
 print("Ingestion complete.")
 print(f"Valid rows inserted: {len(valid_records)}")
