@@ -90,6 +90,7 @@ sensor-data-batch-ingestion/
 
 - Integration with Terraform for cloud infrastructure provisioning
 - API layer for querying data (Flask or FastAPI)
+- Integrate real-time streaming pipeline
 - Basic frontend dashboard for visualization
 
 ## License and Credits
