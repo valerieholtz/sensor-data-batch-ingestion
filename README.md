@@ -71,20 +71,6 @@ This will:
 - Insert valid records into MongoDB
 - Log invalid records to `logs/invalid_rows.log`
 
-### Accessing MongoDB (Optional)
-
-To access MongoDB from the terminal:
-
-```
-docker exec -it mongo mongosh
-```
-
-Then run the following commands:
-
-```javascript
-use environment
-db.sensor_data.find().limit(5).pretty()
-```
 
 ## Project Structure
 
