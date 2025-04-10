@@ -1,13 +1,6 @@
-# Import FastAPI for creating the web API
 from fastapi import FastAPI
-
-# Import MongoClient to connect to MongoDB
 from pymongo import MongoClient
-
-# Import os to access environment variables
 import os
-
-# Load environment variables from a .env file
 from dotenv import load_dotenv
 
 # Load .env variables into the environment
