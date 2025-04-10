@@ -1,24 +1,31 @@
-version: '3.8'
+version: "3.9"  # Use a modern Compose specification (version is optional in v2+ CLI)
 
 services:
   mongo:
-    image: mongo:7
+    image: mongo:7.0  # Use official MongoDB image version 7
     container_name: mongo
     ports:
-      - "27017:27017"
+      - "27017:27017"  # Expose MongoDB port for local access (e.g., from Compass)
     volumes:
-      - mongo-data:/data/db
-    restart: always
+      - mongo-data:/data/db  # Persist MongoDB data on the host via named volume
 
   app:
-    build: .
+    build:
+      context: .  # Root directory of the project
+      dockerfile: docker/Dockerfile.ingest  # Path to Dockerfile for ingestion script
     depends_on:
-      - mongo
-    volumes:
-      - .:/app
-    command: ["python", "ingest.py",  "validate.py"]
-    environment:
-      - MONGO_URI=mongodb://mongo:27017
+      - mongo  # Wait for MongoDB to be ready before starting
+    env_file: .env  # Load environment variables for ingestion script
+
+  api:
+    build:
+      context: .  # Root directory of the project
+      dockerfile: docker/Dockerfile.api  # Path to Dockerfile for FastAPI service
+    ports:
+      - "8000:8000"  # Expose FastAPI port to host machine
+    depends_on:
+      - mongo  # Ensure MongoDB is running before starting the API
+    env_file: .env  # Load environment variables into API container
 
 volumes:
-  mongo-data:
+  mongo-data:  # Named volume to persist MongoDB data

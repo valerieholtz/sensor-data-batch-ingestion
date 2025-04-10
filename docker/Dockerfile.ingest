@@ -1,0 +1,26 @@
+# docker/Dockerfile.ingest
+
+# Use a lightweight official Python image
+FROM python:3.10-slim
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Copy the Python dependencies file
+COPY requirements.txt .
+
+# Install the dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code (includes ingest.py and validate.py)
+COPY app/ ./app/
+
+# Copy the dataset directory
+COPY data/ ./data/
+
+# Copy the environment variables file
+COPY .env .env
+
+# Set the command to run the batch ingestion script
+# (assumes ingest.py is located at app/ingest/ingest.py inside the container)
+CMD ["python", "app/ingest/ingest.py"]

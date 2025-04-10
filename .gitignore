@@ -1,0 +1,23 @@
+# Ignore log files
+logs/
+*.log
+
+# Ignore environment files
+.env
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore CSV dataset if not versioned
+*.csv
+
+# Ignore virtual environments
+venv/
+.env/
+__pycache__/
+*.pyc
+
+# Ignore IDE settings
+.vscode/
+.idea/

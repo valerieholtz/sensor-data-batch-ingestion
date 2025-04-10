@@ -1,2 +1,5 @@
 pandas
 pymongo
+python-dotenv
+fastapi
+uvicorn
