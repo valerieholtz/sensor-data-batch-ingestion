@@ -31,7 +31,7 @@ BATCH_SIZE = 1000
 def load_csv():
     # Load CSV
     try:
-        df = pd.read_csv("iot_telemetry_data.csv")
+        df = pd.read_csv("data/iot_telemetry_data.csv")
         print(f"Loaded {len(df)} records from CSV.")
         return df
     except Exception as e:
