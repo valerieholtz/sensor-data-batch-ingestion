@@ -22,5 +22,4 @@ COPY data/ ./data/
 COPY .env .env
 
 # Set the command to run the batch ingestion script
-# (assumes ingest.py is located at app/ingest/ingest.py inside the container)
 CMD ["python", "app/ingest/ingest.py"]
