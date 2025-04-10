@@ -79,7 +79,7 @@ The FastAPI service runs at:
 http://localhost:8000/sensors
 ```
 
-This endpoint returns the latest ingested sensor data in JSON format. Swagger UI is available at `/docs`.
+This endpoint returns the latest ingested sensor data in JSON format.
 
 ## Project Structure
 
