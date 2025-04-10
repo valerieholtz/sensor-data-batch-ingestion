@@ -1,17 +1,16 @@
-version: "3.9"  # Use a modern Compose specification (version is optional in v2+ CLI)
-
+version: "3.9"
 services:
   mongo:
-    image: mongo:7.0  # Use official MongoDB image version 7
+    image: mongo:7.0 
     container_name: mongo
     ports:
-      - "27017:27017"  # Expose MongoDB port for local access (e.g., from Compass)
+      - "27017:27017"  # Expose MongoDB port for local access
     volumes:
       - mongo-data:/data/db  # Persist MongoDB data on the host via named volume
 
   app:
     build:
-      context: .  # Root directory of the project
+      context: .  
       dockerfile: docker/Dockerfile.ingest  # Path to Dockerfile for ingestion script
     depends_on:
       - mongo  # Wait for MongoDB to be ready before starting
@@ -19,7 +18,7 @@ services:
 
   api:
     build:
-      context: .  # Root directory of the project
+      context: .  
       dockerfile: docker/Dockerfile.api  # Path to Dockerfile for FastAPI service
     ports:
       - "8000:8000"  # Expose FastAPI port to host machine
